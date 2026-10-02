@@ -23,6 +23,14 @@
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="ic-globe" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.3"/>
+    <ellipse cx="12" cy="12" rx="4" ry="9" fill="none" stroke="currentColor" stroke-width="1.3"/>
+    <path d="M3.3 9h17.4M3.3 15h17.4" fill="none" stroke="currentColor" stroke-width="1.3"/>
+  </symbol>
+  <symbol id="ic-caret" viewBox="0 0 24 24">
+    <path d="M6 9.5 12 15.5 18 9.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
   <symbol id="ic-public" viewBox="0 0 32 32">
     <path d="M3 12 L16 4 L29 12" fill="none" stroke="currentColor" stroke-linejoin="round"/>
     <path d="M6 12 V24 M12 12 V24 M20 12 V24 M26 12 V24" fill="none" stroke="currentColor"/>
@@ -75,7 +83,17 @@
         <a href="#team">Team</a>
         <a href="#contact">Contact</a>
       </nav>
-      <a class="lang" href="../es/" data-lang-switch="es" aria-label="Cambiar a español"><b>EN</b> <span>/ ES</span></a>
+      <div class="lang-select">
+      <button class="lang-btn" type="button" aria-expanded="false" aria-haspopup="listbox" aria-label="Language">
+        <svg class="lang-globe" aria-hidden="true"><use href="#ic-globe"></use></svg>
+        <span>English</span>
+        <svg class="lang-caret" aria-hidden="true"><use href="#ic-caret"></use></svg>
+      </button>
+      <ul class="lang-menu" role="listbox" hidden>
+        <li><a href="../es/" data-lang-switch="es">Español</a></li>
+        <li><a href="./" data-lang-switch="en" aria-current="true">English</a></li>
+      </ul>
+    </div>
   </div>
 </div>
 
@@ -297,6 +315,17 @@
   <div class="wrap">
     <p>© 2026 SAVO &amp; Cía.</p>
     <p>Strategic Advisory · International Relations · Project Development</p>
+    <div class="lang-select">
+      <button class="lang-btn" type="button" aria-expanded="false" aria-haspopup="listbox" aria-label="Language">
+        <svg class="lang-globe" aria-hidden="true"><use href="#ic-globe"></use></svg>
+        <span>English</span>
+        <svg class="lang-caret" aria-hidden="true"><use href="#ic-caret"></use></svg>
+      </button>
+      <ul class="lang-menu" role="listbox" hidden>
+        <li><a href="../es/" data-lang-switch="es">Español</a></li>
+        <li><a href="./" data-lang-switch="en" aria-current="true">English</a></li>
+      </ul>
+    </div>
   </div>
 </footer>
 

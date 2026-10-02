@@ -159,8 +159,44 @@
     window.requestAnimationFrame(frame);
   }
 
+  function setupLangSelect() {
+    var selects = Array.prototype.slice.call(document.querySelectorAll(".lang-select"));
+    if (!selects.length) return;
+
+    function close(sel) {
+      sel.classList.remove("is-open");
+      sel.querySelector(".lang-btn").setAttribute("aria-expanded", "false");
+      sel.querySelector(".lang-menu").hidden = true;
+    }
+
+    function closeAll(except) {
+      for (var i = 0; i < selects.length; i++) {
+        if (selects[i] !== except) close(selects[i]);
+      }
+    }
+
+    selects.forEach(function (sel) {
+      var btn = sel.querySelector(".lang-btn");
+      var menu = sel.querySelector(".lang-menu");
+      btn.addEventListener("click", function (event) {
+        event.stopPropagation();
+        var isOpen = btn.getAttribute("aria-expanded") === "true";
+        closeAll(sel);
+        btn.setAttribute("aria-expanded", String(!isOpen));
+        menu.hidden = isOpen;
+        sel.classList.toggle("is-open", !isOpen);
+      });
+      menu.addEventListener("click", function (event) { event.stopPropagation(); });
+    });
+
+    document.addEventListener("click", function () { closeAll(null); });
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape") closeAll(null);
+    });
+  }
+
   function boot() {
-    var steps = [rememberLang, commitSectors, setupMenu, initGlobe];
+    var steps = [rememberLang, commitSectors, setupMenu, setupLangSelect, initGlobe];
     for (var i = 0; i < steps.length; i++) {
       try { steps[i](); } catch (e) { if (window.console) console.error(steps[i].name, e); }
     }

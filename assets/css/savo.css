@@ -194,7 +194,6 @@ p { margin: 0; }
   text-decoration: none;
   color: var(--gold-pale);
 }
-.lang b { font-weight: 500; color: var(--cream); }
 .lang:hover { border-color: var(--gold); }
 
 .claim {
@@ -351,16 +350,7 @@ p { margin: 0; }
 
 .menu-nav a:hover, .menu-nav a:focus-visible { color: var(--gold-pale); }
 
-.menu-inner .lang {
-  margin-top: clamp(1.5rem, 3.5vw, 2.5rem);
-  align-self: flex-start;
-  font-family: var(--ui);
-  font-size: var(--t-2);
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--cream);
-  text-decoration: none;
-}
+.menu-inner .lang-select { margin-top: clamp(1.5rem, 3.5vw, 2.5rem); align-self: flex-start; }
 
 body.menu-open { overflow: hidden; }
 
@@ -652,6 +642,61 @@ section.band { padding-block: clamp(4.5rem, 11vw, 9rem); }
 }
 .details .label { color: var(--gold-pale); margin-bottom: 0.6rem; }
 .details a { color: var(--cream); text-transform: uppercase; letter-spacing: 0.08em; font-size: var(--t-2); }
+
+.lang-select { position: relative; display: inline-block; }
+
+.lang-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.55rem 1.05rem;
+  border: 1px solid var(--rule-cream);
+  border-radius: 999px;
+  background: none;
+  color: var(--cream);
+  font-family: var(--ui);
+  font-size: var(--t-1);
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: border-color 160ms ease-out;
+}
+
+.lang-btn:hover, .lang-btn:focus-visible { border-color: var(--gold); }
+.lang-globe { width: 20px; height: 20px; flex: none; }
+.lang-caret { width: 15px; height: 15px; flex: none; transition: transform 180ms ease-out; }
+.lang-select.is-open .lang-caret { transform: rotate(180deg); }
+
+.lang-menu {
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + 0.45rem);
+  z-index: 30;
+  min-width: 100%;
+  margin: 0;
+  padding: 0.3rem;
+  list-style: none;
+  background: var(--burgundy-deep);
+  border: 1px solid var(--rule-cream);
+  border-radius: 14px;
+}
+
+.lang-menu[hidden] { display: none; }
+
+.lang-menu a {
+  display: block;
+  padding: 0.5rem 0.85rem;
+  border-radius: 10px;
+  font-family: var(--ui);
+  font-size: var(--t-1);
+  color: var(--cream);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.lang-menu a:hover, .lang-menu a:focus-visible { background: rgba(246, 241, 231, 0.12); }
+.lang-menu a[aria-current] { color: var(--gold-pale); }
+
+footer.foot .lang-select { margin-left: auto; }
 
 footer.foot {
   background: var(--burgundy-deep);
