@@ -6,6 +6,8 @@ Served with `noindex` — this is an internal review link, not a launch.
 ## Status
 
 - **Team portraits are the real partners.**
-- **Selected Work** cases are still lorem ipsum with wireframe image frames.
-- The **English page** is still largely lorem: the client copy deck is
-  Spanish-only, so EN needs a translation pass from SAVO.
+- **Selected Work** shows four real projects, summarised from SAVO's own
+  concept notes. The accompanying photography is stock (Pexels) and should be
+  replaced with imagery from the projects themselves.
+- The **English page** still needs a copy pass: the client copy deck is
+  Spanish-only, so some English is translation rather than SAVO's wording.

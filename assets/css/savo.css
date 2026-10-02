@@ -566,6 +566,15 @@ section.band { padding-block: clamp(4.5rem, 11vw, 9rem); }
   gap: clamp(0.9rem, 1.6vw, 1.15rem);
 }
 
+.slot .shot {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  background: var(--cream-deep);
+}
+
 .slot h3 { font-size: 0.875rem; font-weight: 400; }
 
 .slot p {
@@ -574,21 +583,6 @@ section.band { padding-block: clamp(4.5rem, 11vw, 9rem); }
   line-height: 1.6;
   color: var(--ink-soft);
 }
-
-.ph {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  background: var(--cream-deep);
-  border: 1px solid var(--rule);
-  color: var(--gold-deep);
-}
-
-.ph.portrait { aspect-ratio: 3 / 4; }
-.ph svg { width: 44px; height: 33px; opacity: 0.5; }
-.ph.portrait svg { width: 38px; height: 38px; }
 
 .people {
   display: grid;
