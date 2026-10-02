@@ -14,6 +14,12 @@
   --rule-gold: rgba(186, 137, 39, 0.42);
   --rule-cream: rgba(246, 241, 231, 0.26);
 
+  /* type scale: nothing renders below --t-1 (16px) */
+  --t-1: 1rem;        /* 16 - labels, numerals, buttons, footer */
+  --t-2: 1.0625rem;   /* 17 - card body, bios */
+  --t-3: 1.125rem;    /* 18 - card titles, prose */
+  --t-4: 1.1875rem;   /* 19 - matches body */
+
   --ui: "Zen Kaku Gothic New", "Helvetica Neue", Arial, sans-serif;
   --display: "Zen Kaku Gothic New", "Helvetica Neue", Arial, sans-serif;
 
@@ -60,6 +66,7 @@ h1, h2, h3 {
   margin: 0;
   /* Zen Kaku Gothic New ships 300 as its lightest cut; 200 does not exist */
   font-weight: 300;
+  overflow-wrap: break-word;
   text-transform: uppercase;
   line-height: 1.22;
   letter-spacing: 0.035em;
@@ -76,7 +83,7 @@ p { margin: 0; }
 
 .label {
   font-family: var(--ui);
-  font-size: 0.75rem;
+  font-size: var(--t-1);
   font-weight: 400;
   letter-spacing: var(--caps);
   text-transform: uppercase;
@@ -102,7 +109,7 @@ p { margin: 0; }
   color: var(--cream);
   padding: 0.75rem 1.25rem;
   font-family: var(--ui);
-  font-size: 0.875rem;
+  font-size: var(--t-3);
   z-index: 10;
 }
 .skip:focus { left: 1rem; top: 1rem; }
@@ -111,7 +118,7 @@ p { margin: 0; }
   background: var(--gold-pale);
   color: var(--burgundy);
   font-family: var(--ui);
-  font-size: 0.8125rem;
+  font-size: var(--t-2);
   line-height: 1.5;
   padding-block: 0.8rem;
   border-bottom: 1px solid var(--gold-deep);
@@ -156,7 +163,7 @@ p { margin: 0; }
   display: block;
   margin-top: clamp(1.5rem, 3vw, 2.25rem);
   color: var(--gold-pale);
-  font-size: clamp(0.75rem, 1vw, 0.8125rem);
+  font-size: clamp(var(--t-1), 1.2vw, var(--t-2));
   letter-spacing: 0.14em;
   line-height: 1.7;
   max-width: 58rem;
@@ -176,7 +183,7 @@ p { margin: 0; }
 
 .lang {
   font-family: var(--ui);
-  font-size: 0.75rem;
+  font-size: var(--t-1);
   letter-spacing: var(--caps);
   text-transform: uppercase;
   display: inline-flex;
@@ -203,7 +210,7 @@ p { margin: 0; }
 .refusal {
   margin-top: clamp(1rem, 2vw, 1.5rem);
   font-family: var(--ui);
-  font-size: clamp(0.9375rem, 1.3vw, 1.0625rem);
+  font-size: clamp(var(--t-4), 1.6vw, 1.3125rem);
   line-height: 1.6;
   max-width: 30em;
   color: var(--cream);
@@ -224,7 +231,7 @@ p { margin: 0; }
   display: inline-block;
   margin-top: clamp(2.25rem, 4vw, 3rem);
   font-family: var(--ui);
-  font-size: 0.8125rem;
+  font-size: var(--t-2);
   font-weight: 500;
   letter-spacing: var(--caps);
   text-transform: uppercase;
@@ -259,7 +266,7 @@ p { margin: 0; }
 
 .menu-word {
   font-family: var(--ui);
-  font-size: 0.75rem;
+  font-size: var(--t-1);
   font-weight: 500;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -348,7 +355,7 @@ p { margin: 0; }
   margin-top: clamp(1.5rem, 3.5vw, 2.5rem);
   align-self: flex-start;
   font-family: var(--ui);
-  font-size: 0.8125rem;
+  font-size: var(--t-2);
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--cream);
@@ -416,12 +423,12 @@ body.menu-open { overflow: hidden; }
   margin-bottom: clamp(1.75rem, 3.5vw, 3rem);
 }
 
-.sector h3 { font-size: 0.8125rem; letter-spacing: 0.08em; }
+.sector h3 { font-size: var(--t-2); letter-spacing: 0.08em; }
 
 .sector p {
   margin-top: 0.8rem;
   font-family: var(--ui);
-  font-size: 0.8125rem;
+  font-size: var(--t-2);
   line-height: 1.6;
   color: var(--ink-soft);
 }
@@ -462,7 +469,7 @@ section.band { padding-block: clamp(4.5rem, 11vw, 9rem); }
 .prose {
   margin-top: clamp(1rem, 2vw, 1.4rem);
   font-family: var(--ui);
-  font-size: 0.9375rem;
+  font-size: var(--t-4);
   line-height: 1.7;
   color: var(--ink-soft);
 }
@@ -495,7 +502,7 @@ section.band { padding-block: clamp(4.5rem, 11vw, 9rem); }
   align-items: flex-start;
   gap: clamp(0.6rem, 1.2vw, 0.9rem);
   padding-block: clamp(0.5rem, 1vw, 0.75rem);
-  font-size: clamp(0.875rem, 1.4vw, 1.0625rem);
+  font-size: clamp(var(--t-3), 1.7vw, 1.3125rem);
   font-weight: 300;
   letter-spacing: 0.035em;
   text-transform: uppercase;
@@ -517,21 +524,22 @@ section.band { padding-block: clamp(4.5rem, 11vw, 9rem); }
 .station .n {
   font-family: var(--ui);
   font-variant-numeric: tabular-nums;
-  font-size: 0.75rem;
+  font-size: var(--t-1);
   font-weight: 400;
   letter-spacing: 0.12em;
   color: var(--gold-deep);
 }
 
 .station h3 {
+  hyphens: auto;
   margin-top: 0.9rem;
-  font-size: clamp(0.9375rem, 1.15vw, 1.0625rem);
+  font-size: clamp(var(--t-4), 1.5vw, 1.3125rem);
 }
 
 .station p {
   margin-top: 0.7rem;
   font-family: var(--ui);
-  font-size: 0.875rem;
+  font-size: var(--t-3);
   line-height: 1.55;
   color: var(--ink-soft);
 }
@@ -575,11 +583,11 @@ section.band { padding-block: clamp(4.5rem, 11vw, 9rem); }
   background: var(--cream-deep);
 }
 
-.slot h3 { font-size: 0.875rem; font-weight: 400; }
+.slot h3 { font-size: var(--t-3); font-weight: 400; }
 
 .slot p {
   font-family: var(--ui);
-  font-size: 0.8125rem;
+  font-size: var(--t-2);
   line-height: 1.6;
   color: var(--ink-soft);
 }
@@ -601,11 +609,11 @@ section.band { padding-block: clamp(4.5rem, 11vw, 9rem); }
   background: var(--cream-deep);
 }
 
-.person h3 { margin-top: clamp(0.9rem, 1.6vw, 1.15rem); font-size: 0.9375rem; font-weight: 400; }
+.person h3 { margin-top: clamp(0.9rem, 1.6vw, 1.15rem); font-size: var(--t-4); font-weight: 400; }
 
 .person .role {
   font-family: var(--ui);
-  font-size: 0.75rem;
+  font-size: var(--t-1);
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--gold-deep);
@@ -615,7 +623,7 @@ section.band { padding-block: clamp(4.5rem, 11vw, 9rem); }
 
 .person p {
   font-family: var(--ui);
-  font-size: 0.8125rem;
+  font-size: var(--t-2);
   line-height: 1.6;
   color: var(--ink-soft);
   margin-top: 0.8rem;
@@ -640,17 +648,17 @@ section.band { padding-block: clamp(4.5rem, 11vw, 9rem); }
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: clamp(1.5rem, 3vw, 2.5rem);
   font-family: var(--ui);
-  font-size: 0.9375rem;
+  font-size: var(--t-4);
 }
 .details .label { color: var(--gold-pale); margin-bottom: 0.6rem; }
-.details a { color: var(--cream); text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.8125rem; }
+.details a { color: var(--cream); text-transform: uppercase; letter-spacing: 0.08em; font-size: var(--t-2); }
 
 footer.foot {
   background: var(--burgundy-deep);
   color: var(--gold-pale);
   padding-block: 2.25rem;
   font-family: var(--ui);
-  font-size: 0.75rem;
+  font-size: var(--t-1);
   letter-spacing: 0.03em;
 }
 footer.foot .wrap { display: flex; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; }
